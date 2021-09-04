@@ -81,30 +81,13 @@ class App extends Controller
          return;
       }
 
-      $apenasRespostas = [];
-
-      foreach ($obRespostas as $resposta) {
-
-         $respostaDecodificada = json_decode($resposta->respostas, true);
-
-         foreach ($respostaDecodificada as $key => $respostaDaFila) {
-            if ($key == 'blocoId' || $key == 'page') continue;
-            if ($key == "opcoes") $respostaDaFila = implode(",", $respostaDaFila);
-
-            // Caso a resposta secondaria, seja outro, aparece apenas o valor digitado pelo usuário
-            if(count(explode('_', $key)) > 1){
-               $keySeparada = explode('_', $key);
-               if($keySeparada[count($keySeparada)-1] == "1" && $respostaDaFila == "Outro") continue;
-            }
-            
-            $apenasRespostas[$key] = $respostaDaFila;
-         }
-      }
+      // Converte para pergunta e resposta
+      $respostasArray = (new \Source\Utils\Respostas($obRespostas))->simplificarDadosRespostas();
 
       echo $this->view->render('app/verPesquisador', [
          'title' => "Gabarito",
          'userId' => $_SESSION['userId'],
-         'obRespostas' => $apenasRespostas
+         'obRespostas' => $respostasArray
       ]);
    }
 }
