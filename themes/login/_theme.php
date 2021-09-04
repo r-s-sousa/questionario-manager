@@ -8,7 +8,7 @@
 
    <title><?= $title; ?></title>
 
-   <link rel="icon" type="image/png" href=" <?= asset("imgs/main/dollar.png"); ?>">
+   <link rel="icon" type="image/png" href=" <?= asset("imgs/fav.png"); ?>">
 
    <!-- Bootstrap core CSS -->
    <link href="<?= asset('css/bootstrap.min.css'); ?>" rel="stylesheet">

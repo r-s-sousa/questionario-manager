@@ -3,7 +3,7 @@
 <form class="form-signin border p-4" action="<?= $router->route('login.post'); ?>" method="POST">
    <div class="row">
       <div class="col-md-12">
-         <img class="mb-4 mt-2 img-fluid imgLogo" src="<?= asset('imgs/main/logo-yellow.png'); ?>" height="60">
+         <img class="mb-4 mt-2 img-fluid imgLogo" src="<?= asset('imgs/logo.png'); ?>" height="60">
       </div>
       <div class="col-md-12">
          <h1 class="h3 mb-3 font-weight-normal">Acesse sua conta</h1>
@@ -29,11 +29,6 @@
       <div class="col-md-12">
          <button class="btn btn-lg btn-primary my-3 w-50 buttonCustom" type="submit">Entrar</button>
       </div>
-      <div class="col-md-12 d-flex justify-content-between mb-3 mt-1">
-         <a class="text-dark font-italic" href="<?= $router->route('login.cadastro'); ?>">Não tem cadastro ?</a>
-         <a class="text-dark font-italic" href="<?= $router->route('login.recuperar'); ?>">Esqueceu sua senha ?</a>
-      </div>
-   </div>
    </div>
 </form>
 
