@@ -24,7 +24,17 @@
 
 <body style="background-color: #f3f3f3">
    <main style="margin-top: 70px;">
-      <?= $this->section('content'); ?>
+      <div class="container bg-white p-4 rounded">
+         <div class="row">
+            <div class="col-md-12 text-center mb-4">
+               <img src="<?= asset('imgs/logo.png'); ?>" class="img-fluid">
+            </div>
+            <div class="col-md-12">
+               <?= $this->insert('login/mensagem'); ?>
+            </div>
+            <?= $this->section('content'); ?>
+         </div>
+      </div>
    </main>
 
    <!-- BOOTSTRAP SCRIPTS -->

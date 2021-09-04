@@ -1,8 +1,8 @@
 <nav class="navbar navbar-expand-sm bg-dark fixed-top">
    <div class="container">
 
-      <a href="" class="navbar-brand">
-         <a href="#" class="nav-link text-white">Repostas</a>
+      <a class="navbar-brand">
+         <a href="<?= $router->route('app.respostas'); ?>" class="nav-link text-white">Repostas</a>
       </a>
 
       <button class="navbar-toggler" data-toggle="collapse" data-target="#nav-principal">
