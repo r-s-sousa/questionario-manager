@@ -37,9 +37,12 @@ class Respostas
       foreach ($this->obRespostas as $resposta) {
 
          $respostaDecodificada = json_decode($resposta->respostas, true);
+         $bloco = $resposta->bloco;
+         $page = $resposta->page;
 
          foreach ($respostaDecodificada as $key => $respostaDaFila) {
-            if ($key == 'blocoId' || $key == 'page') continue;
+            if ($key == 'blocoId')  continue;
+            if ($key == 'page')  continue;
             if ($key == "opcoes") $respostaDaFila = implode(",", $respostaDaFila);
 
             // Caso a resposta secondaria, seja outro, aparece apenas o valor digitado pelo usuário
@@ -48,10 +51,10 @@ class Respostas
                if ($keySeparada[count($keySeparada) - 1] == "1" && $respostaDaFila == "Outro") continue;
             }
 
-            $apenasRespostas[$key] = $respostaDaFila;
+            $apenasRespostas[$key] = ['resposta' => $respostaDaFila, 'bloco' => $bloco, 'page' => $page];
          }
       }
-
+      
       return $apenasRespostas;
    }
 }

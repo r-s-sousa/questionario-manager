@@ -8,7 +8,7 @@ $this->insert('partials/navbar', ['userId' => $userId]);
 </div>
 
 <div class="col-md-12">
-   <table class="table table-bordered">
+   <table class="table table-bordered" id="tabela">
       <thead class="thead-dark">
          <tr>
             <th>#</th>
@@ -27,3 +27,12 @@ $this->insert('partials/navbar', ['userId' => $userId]);
       </tbody>
    </table>
 </div>
+
+<!-- filter table jquery -->
+<?php $this->start("styles"); ?>
+<?php $this->insert("filtertable/filtercss"); ?>
+<?php $this->end(); ?>
+
+<?php $this->start("scripts"); ?>
+<?php $this->insert("filtertable/filtertable"); ?>
+<?php $this->end(); ?>

@@ -18,6 +18,9 @@
    <!-- MEU ESTILO -->
    <link rel="stylesheet" href="<?= asset("main/estilo.css"); ?>">
 
+   <!-- ESTILO CASO QUEIRA PREENCHER -->
+   <?= $this->section('styles'); ?>
+
    <!-- TITULO -->
    <title><?= $title; ?></title>
 </head>
