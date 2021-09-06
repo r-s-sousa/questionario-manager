@@ -59,7 +59,7 @@ class Login extends Controller
       }
 
       // Define o ID do usuário na sessão
-      $_SESSION['userId'] = $emailOb[0]->id;
+      $_SESSION['managerUserId'] = $emailOb[0]->id;
 
       // REDIRECIONA PARA A PÁGINA INICIAL DO APLICATIVO
       $this->router->redirect('app.respostas');

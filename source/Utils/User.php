@@ -15,9 +15,9 @@ class User
    public static function verificaSeEstaLogado(): bool
    {
       // Verifica se existe a sessão
-      if(!isset($_SESSION['userId'])) return false;
+      if(!isset($_SESSION['managerUserId'])) return false;
 
-      $userId = $_SESSION['userId'];
+      $userId = $_SESSION['managerUserId'];
 
       // Verifica se o usuário com esse Id existe no banco de dados
       $obUser = (new \Source\Models\User)->findById($userId);

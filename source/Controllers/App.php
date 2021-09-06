@@ -34,7 +34,7 @@ class App extends Controller
     */
    public function logout(): void
    {
-      unset($_SESSION['userId']);
+      unset($_SESSION['managerUserId']);
       $this->router->redirect('login.login');
       return;
    }
@@ -51,7 +51,7 @@ class App extends Controller
 
       echo $this->view->render('app/app', [
          'title' => "Respostas",
-         'userId' => $_SESSION['userId'],
+         'userId' => $_SESSION['managerUserId'],
          'obPesquisadores' => $obPesquisadores
       ]);
    }
@@ -86,7 +86,7 @@ class App extends Controller
 
       echo $this->view->render('app/verPesquisador', [
          'title' => "Gabarito",
-         'userId' => $_SESSION['userId'],
+         'userId' => $_SESSION['managerUserId'],
          'obRespostas' => $respostasArray
       ]);
    }
