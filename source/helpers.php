@@ -1,6 +1,19 @@
 <?php
 
 /**
+ * Abrevia o nome da pessoa, para pegar apenas o 1º e último nome
+ * 
+ * @param string $nomeCompleto nome completo
+ * @return string nome simplificado
+ */
+function abreviaNome(string $nomeCompleto): string
+{
+   $nomeSplit = explode(' ', $nomeCompleto);
+   if(count($nomeSplit) > 1) return $nomeSplit[0]." ".$nomeSplit[count($nomeSplit)-1];
+   else return $nomeCompleto;
+}
+
+/**
  * Apresenta todos argumentos passados de uma 
  * forma bem atrativa
  *

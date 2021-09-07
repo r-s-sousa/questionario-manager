@@ -24,7 +24,7 @@ class Error extends Controller
     */
    public function Error($data)
    {
-      echo $this->view->render("main/error", [
+      echo $this->view->render("error/error", [
          'title' => "Error {$data['errcode']} | " . SITE,
          'error' => $data['errcode']
       ]);

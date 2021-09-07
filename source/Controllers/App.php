@@ -5,6 +5,8 @@ namespace Source\Controllers;
 use Source\Models\Dado;
 use Source\Models\Resposta;
 use Source\Models\User;
+use Source\Utils\Csv;
+use Source\Utils\Respostas;
 
 /**
  * Controlador do APP
@@ -90,4 +92,29 @@ class App extends Controller
          'obRespostas' => $respostasArray
       ]);
    }
+
+   /**
+    * Baixa uma planilha do tipo CSV com os dados do banco de dados
+    *
+    * @return void
+    */
+   public function exportar(): void
+   {
+      $dadosPesquisadores = (new Dado)->find()->fetch(true);
+      $dadosRespostas = [];
+      foreach($dadosPesquisadores as $obPesquisador){
+         $respotasOb = (new Resposta)->find('idUsuario = :iu', "iu=$obPesquisador->id")->order('page')->fetch(true);
+         $respostasFormatadas = (new Respostas($respotasOb))->simplificarDadosRespostas();
+         $dadosRespostas[$obPesquisador->id] = $respostasFormatadas;
+      }
+
+      // Criar arquivo ODS
+      $obCsv = (new Csv($dadosPesquisadores, $dadosRespostas))->gerarCsvFile();
+
+      header('Content-Description: File Transfer');
+      header('Content-Type: application/force-download');
+      header("Content-Disposition: attachment; filename=questionario-".date('d-m-Y H-i-s').".csv");
+      echo file_get_contents($obCsv);
+   }
+   
 }
