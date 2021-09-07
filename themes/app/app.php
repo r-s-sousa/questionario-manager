@@ -13,6 +13,7 @@ $this->insert('partials/navbar', ['userId' => $userId]);
          <tr>
             <th>#</th>
             <th>Pesquisador</th>
+            <th>Telefone</th>
             <th>Entrevista</th>
             <th>Gabarito</th>
             <th>Deletar</th>
@@ -23,6 +24,7 @@ $this->insert('partials/navbar', ['userId' => $userId]);
             <tr>
                <td><?= $pesquisador->id; ?></td>
                <td><?= $pesquisador->nome; ?></td>
+               <td><?= $pesquisador->telefone; ?></td>
                <td><?= $pesquisador->termoUsoImagem ? "sim" : "não"; ?></td>
                <td><a href="<?= $router->route('app.verPesquisador', ['id' => $pesquisador->id]); ?>"> <i class="fas fa-database"></i></a></td>
                <td>
