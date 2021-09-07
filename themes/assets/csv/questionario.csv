@@ -84,27 +84,3 @@ order,pesquisador,bloco,page,pergunta,resposta
 83,"Rafael Sousa",5,13,q38,Sim
 84,"Rafael Sousa",5,13,opcoes,"Mortalidade,Incidência,Fatores de risco,Determinantes sociais/culturas,Determinantes ambientas,Outros"
 85,"Rafael Sousa",5,13,opcoesOutro,1234
-86,"teste 2",1,1,q2,"Ciências Exatas e da Terra"
-87,"teste 2",1,1,q3,Atuação
-88,"teste 2",1,2,q5,"Edital MCT/CNPq/MS-SCTIE-DECIT nº 025/2006 – Doenças Negligenciadas."
-89,"teste 2",1,2,q6,"Titulo da pesquisa"
-90,"teste 2",1,2,q7,2021-11-21
-91,"teste 2",1,2,q8,2021-11-21
-92,"teste 2",1,3,q9_Outro,123
-93,"teste 2",1,3,q10,Não
-94,"teste 2",1,3,q11,Não
-95,"Rafael Sousa",1,1,q2,"Ciências Exatas e da Terra"
-96,"Rafael Sousa",1,1,q3,123
-97,"Rafael Sousa",5,13,q38,Não
-98,Gabriela,1,1,q2,Engenharias
-99,Gabriela,1,1,q3,"Ciência da saúde"
-100,Gabriela,1,2,q5,"Edital MCT/CNPq/CTI-Saúde/MS/SCTIE/DECIT nº 034/2008 – Doenças Negligenciadas."
-101,Gabriela,1,2,q6,"titulo 2"
-102,Gabriela,1,2,q7,2021-11-11
-103,Gabriela,1,2,q8,2021-12-10
-104,Gabriela,1,3,q9,"Não sei/Não lembro"
-105,Gabriela,1,3,q10,Não
-106,Gabriela,1,3,q11,Sim
-107,Gabriela,1,3,q11_1,"Não sei/Não lembro"
-108,Gabriela,5,13,q38,Sim
-109,Gabriela,5,13,opcoes,"Mortalidade,Incidência,Fatores de risco,Não sei/Não lembro,Incidência"

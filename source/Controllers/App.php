@@ -4,7 +4,6 @@ namespace Source\Controllers;
 
 use Source\Models\Dado;
 use Source\Models\Resposta;
-use Source\Models\User;
 use Source\Utils\Csv;
 use Source\Utils\Respostas;
 
@@ -89,6 +88,7 @@ class App extends Controller
       echo $this->view->render('app/verPesquisador', [
          'title' => "Gabarito",
          'userId' => $_SESSION['managerUserId'],
+         'id' => $idPesquisador,
          'obRespostas' => $respostasArray
       ]);
    }
@@ -102,10 +102,8 @@ class App extends Controller
    {
       $dadosPesquisadores = (new Dado)->find()->fetch(true);
       $dadosRespostas = [];
-      foreach($dadosPesquisadores as $obPesquisador){
-         $respotasOb = (new Resposta)->find('idUsuario = :iu', "iu=$obPesquisador->id")->order('page')->fetch(true);
-         $respostasFormatadas = (new Respostas($respotasOb))->simplificarDadosRespostas();
-         $dadosRespostas[$obPesquisador->id] = $respostasFormatadas;
+      foreach ($dadosPesquisadores as $obPesquisador) {
+         $dadosRespostas[$obPesquisador->id] = $this->getRespostasByPesquisador($obPesquisador);
       }
 
       // Criar arquivo ODS
@@ -113,8 +111,41 @@ class App extends Controller
 
       header('Content-Description: File Transfer');
       header('Content-Type: application/force-download');
-      header("Content-Disposition: attachment; filename=questionario-".date('d-m-Y H-i-s').".csv");
+      header("Content-Disposition: attachment; filename=questionario-" . date('d-m-Y H-i-s') . ".csv");
       echo file_get_contents($obCsv);
    }
-   
+
+   /**
+    * Baixa uma planilha do tipo CSV com os dados de um pesquisador em específico
+    *
+    * @return void
+    */
+   public function exportarIndividual(array $data): void
+   {
+      $idPesquisador = filter_Var($data['id'], FILTER_SANITIZE_STRING);
+      $obPesquisador = (new Dado)->find('id = :id', "id=$idPesquisador")->fetch();
+      $dadosRespostas[$obPesquisador->id] = $this->getRespostasByPesquisador($obPesquisador);
+
+      // Criar arquivo ODS
+      $obCsv = (new Csv([$obPesquisador], $dadosRespostas))->gerarCsvFile();
+
+      header('Content-Description: File Transfer');
+      header('Content-Type: application/force-download');
+      header("Content-Disposition: attachment; filename=questionario-individual-" . date('d-m-Y H-i-s') . ".csv");
+      echo file_get_contents($obCsv);
+   }
+
+   /**
+    * Obtém as respostas a partir de um Objeto do tipo Dado
+    *
+    * @param Dado $obPesquisador
+    * @return array
+    */
+   private function getRespostasByPesquisador($obPesquisador)
+   {
+      $respotasOb = (new Resposta)->find('idUsuario = :iu', "iu=$obPesquisador->id")->order('page')->fetch(true);
+      $respostasFormatadas = (new Respostas($respotasOb))->simplificarDadosRespostas();
+
+      return $respostasFormatadas;
+   }
 }

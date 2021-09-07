@@ -29,6 +29,10 @@ $this->insert('partials/navbar', ['userId' => $userId]);
    </table>
 </div>
 
+<div class="col-md-12">
+   <a href="<?= $router->route('app.exportarIndividual', ['id' => $id]); ?>" target="_blank" class="btn btn-outline-info">Baixar individual</a>
+</div>
+
 <!-- filter table jquery -->
 <?php $this->start("styles"); ?>
 <?php $this->insert("filtertable/filtercss"); ?>

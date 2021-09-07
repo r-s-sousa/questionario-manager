@@ -41,6 +41,7 @@ class Csv
    public function gerarCsvFile(): string
    {
       $dadosCsv = [];
+
       $cont = 0;
       foreach($this->obPesquisadores as $obPesquisador){
          $respostasDoPesquisador = $this->obRespostas[$obPesquisador->id];
