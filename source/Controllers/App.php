@@ -6,6 +6,7 @@ use Source\Models\Dado;
 use Source\Models\Resposta;
 use Source\Utils\Csv;
 use Source\Utils\Respostas;
+use stdClass;
 
 /**
  * Controlador do APP
@@ -49,12 +50,52 @@ class App extends Controller
    {
       // Pega todos pesquisadores
       $obPesquisadores = (new Dado)->find()->fetch(true);
+      
+      // Caso não tenha nenhum pesquisador
+      if(!$obPesquisadores) $obPesquisadores = new stdClass();
 
       echo $this->view->render('app/app', [
          'title' => "Respostas",
          'userId' => $_SESSION['managerUserId'],
          'obPesquisadores' => $obPesquisadores
       ]);
+   }
+
+   /**
+    * Deleta o pesquisador e todas suas respostas
+    *
+    * @param array $data
+    * @return void
+    */
+   public function deletar(array $data): void
+   {
+      // Id do pesquisador
+      $id = filter_var($data['id'], FILTER_SANITIZE_STRING);
+      $obPesquisador = (new Dado)->find('id = :id', "id=$id")->fetch();
+      if(!$obPesquisador){
+         setMessage('error', "Não foi encontrado dados desse pesquisador!");   
+         $this->router->redirect('app.respostas');
+         return;
+      }
+
+      // todas respostas
+      $obRespostas = (new Resposta)->find('idUsuario = :iu', "iu=$obPesquisador->id")->fetch(true);
+
+      // deleta o pesquisador
+      $obPesquisador->destroy();
+
+      if(!$obRespostas){
+         setMessage('error', "Todas respostas já foram removidas!");     
+         $this->router->redirect('app.respostas');
+         return;
+      }
+
+      foreach($obRespostas as $obResposta){
+         $obResposta->destroy();
+      }
+
+      setMessage('sucesso', "Dados da entrevista deletado com sucesso!");
+      $this->router->redirect('app.respostas');
    }
 
    /**
