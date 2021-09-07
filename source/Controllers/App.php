@@ -142,9 +142,22 @@ class App extends Controller
    public function exportar(): void
    {
       $dadosPesquisadores = (new Dado)->find()->fetch(true);
+
+      if(!$dadosPesquisadores){
+         setMessage('error', "Não temos registros suficientes para gerar seu Relatório");
+         $this->router->redirect('app.respostas');
+         return;
+      }
+
       $dadosRespostas = [];
       foreach ($dadosPesquisadores as $obPesquisador) {
          $dadosRespostas[$obPesquisador->id] = $this->getRespostasByPesquisador($obPesquisador);
+      }
+
+      if(count($dadosRespostas) == 0){
+         setMessage('error', "Não temos registros suficientes para gerar seu Relatório");
+         $this->router->redirect('app.respostas');
+         return;
       }
 
       // Criar arquivo ODS
@@ -165,7 +178,20 @@ class App extends Controller
    {
       $idPesquisador = filter_Var($data['id'], FILTER_SANITIZE_STRING);
       $obPesquisador = (new Dado)->find('id = :id', "id=$idPesquisador")->fetch();
+
+      if(!$obPesquisador){
+         setMessage('error', "Não temos registros suficientes para gerar seu Relatório");
+         $this->router->redirect('app.respostas');
+         return;
+      }
+
       $dadosRespostas[$obPesquisador->id] = $this->getRespostasByPesquisador($obPesquisador);
+
+      if(count($dadosRespostas) == 0){
+         setMessage('error', "Não temos registros suficientes para gerar seu Relatório");
+         $this->router->redirect('app.respostas');
+         return;
+      }
 
       // Criar arquivo ODS
       $obCsv = (new Csv([$obPesquisador], $dadosRespostas))->gerarCsvFile();
