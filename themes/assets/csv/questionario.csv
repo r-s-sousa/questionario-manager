@@ -1,86 +1,21 @@
 order,pesquisador,bloco,page,pergunta,resposta
-1,"Rafael Sousa",1,1,q2,"Ciências Exatas e da Terra"
-2,"Rafael Sousa",1,1,q3,"subarea de atuação"
-3,"Rafael Sousa",1,2,q5,"Edital MCT/CNPq/MS-SCTIE-DECIT nº 025/2006 – Doenças Negligenciadas."
-4,"Rafael Sousa",1,2,q6,"Titulo da pesquisa"
-5,"Rafael Sousa",1,2,q7,2000-11-21
-6,"Rafael Sousa",1,2,q8,2021-11-21
-7,"Rafael Sousa",1,3,q9_Outro,12345
-8,"Rafael Sousa",1,3,q10,Sim
-9,"Rafael Sousa",1,3,q10_1_Outro,12345
-10,"Rafael Sousa",1,3,q11,Sim
-11,"Rafael Sousa",1,3,q11_1_Outro,12345
-12,"Rafael Sousa",1,4,q12,Sim
-13,"Rafael Sousa",1,4,q12_1_Outro,Instituições
-14,"Rafael Sousa",1,4,q13,"Pesquisa Biomédica – investigam mecanismos de saúde e doença. Buscam produzir conhecimento sobre desenvolvimento de métodos diagnóstico, tratamento, métodos de prevenção de agravos e doenças, com o objetivo de melhorar a qualidade de vida dos indivíduos."
-15,"Rafael Sousa",2,5,q14,Sim
-16,"Rafael Sousa",2,5,q14_1_Outro,Titulos
-17,"Rafael Sousa",2,5,q15,Sim
-18,"Rafael Sousa",2,5,q15_1_Outro,Livros
-19,"Rafael Sousa",2,5,q16,Sim
-20,"Rafael Sousa",2,5,q16_1_Outro,Titulos
-21,"Rafael Sousa",3,6,q17_Outro,12345
-22,"Rafael Sousa",3,6,q18,Sim
-23,"Rafael Sousa",3,6,q18_1_Outro,12345
-24,"Rafael Sousa",3,6,q18_2_Outro,12345
-25,"Rafael Sousa",3,6,q19,Sim
-26,"Rafael Sousa",3,6,q19_1_Outro,12345
-27,"Rafael Sousa",3,6,q20,Sim
-28,"Rafael Sousa",3,6,q20_1_Outro,12345
-29,"Rafael Sousa",3,7,q21,Sim
-30,"Rafael Sousa",3,7,q21_1_Outro,12344
-31,"Rafael Sousa",3,7,q21_2_Outro,1234
-32,"Rafael Sousa",3,7,q22,Sim
-33,"Rafael Sousa",3,7,q22_1_Outro,1234
-34,"Rafael Sousa",3,7,q22_2_Outro,123
-35,"Rafael Sousa",3,7,q23,Sim
-36,"Rafael Sousa",3,7,q23_1_Outro,1234
-37,"Rafael Sousa",3,7,q23_2_Outro,1234
-38,"Rafael Sousa",3,7,q24,Sim
-39,"Rafael Sousa",3,7,q24_1_Outro,1234
-40,"Rafael Sousa",3,7,q24_2_Outro,1234
-41,"Rafael Sousa",3,7,q25,Sim
-42,"Rafael Sousa",3,7,q25_1_Outro,1234
-43,"Rafael Sousa",3,7,q25_2_Outro,1234
-44,"Rafael Sousa",4,8,q26,Sim
-45,"Rafael Sousa",4,8,q26_1_Outro,1234
-46,"Rafael Sousa",4,8,q27,Sim
-47,"Rafael Sousa",4,8,q27_1_Outro,1234
-48,"Rafael Sousa",4,8,q27_2_Outro,1234
-49,"Rafael Sousa",4,9,q28,Sim
-50,"Rafael Sousa",4,9,q28_1_Outro,1234
-51,"Rafael Sousa",4,9,q29,Sim
-52,"Rafael Sousa",4,9,q29_1_Outro,1234
-53,"Rafael Sousa",5,10,q30_1,Sim
-54,"Rafael Sousa",5,10,q30_1_1_Outro,Nomes
-55,"Rafael Sousa",5,10,q30_2,Sim
-56,"Rafael Sousa",5,10,q30_2_1_Outro,Nomes
-57,"Rafael Sousa",5,10,q30_3,Sim
-58,"Rafael Sousa",5,10,q30_3_1_Outro,Nomes
-59,"Rafael Sousa",5,10,q30_4,Sim
-60,"Rafael Sousa",5,10,q30_4_1_Outro,Nomes
-61,"Rafael Sousa",5,10,q30_5,Sim
-62,"Rafael Sousa",5,10,q30_5_1_Outro,"Numero e anos das portarias"
-63,"Rafael Sousa",5,10,q30_6,Sim
-64,"Rafael Sousa",5,10,q30_6_1_Outro,Nomes
-65,"Rafael Sousa",5,10,q30_7,Sim
-66,"Rafael Sousa",5,10,q30_7_1_Outro,Nomes
-67,"Rafael Sousa",5,10,q30_8,Sim
-68,"Rafael Sousa",5,10,q30_8_1_Outro,Nomes
-69,"Rafael Sousa",5,10,q30_9,Sim
-70,"Rafael Sousa",5,10,q30_9_1_Outro,Quantidade
-71,"Rafael Sousa",5,11,q31,Sim
-72,"Rafael Sousa",5,11,q31_1_Outro,Consultorias
-73,"Rafael Sousa",5,11,q32,Sim
-74,"Rafael Sousa",5,11,q33,Sim
-75,"Rafael Sousa",5,11,q34,Sim
-76,"Rafael Sousa",5,11,q34_1_Outro,Palestras
-77,"Rafael Sousa",5,11,q35,Sim
-78,"Rafael Sousa",5,11,q35_1_Outro,Apresentações
-79,"Rafael Sousa",5,12,q36,Sim
-80,"Rafael Sousa",5,12,q36_1_Outro,Patentes
-81,"Rafael Sousa",5,12,q37,Sim
-82,"Rafael Sousa",5,12,q37_1_Outro,12345
-83,"Rafael Sousa",5,13,q38,Sim
-84,"Rafael Sousa",5,13,opcoes,"Mortalidade,Incidência,Fatores de risco,Determinantes sociais/culturas,Determinantes ambientas,Outros"
-85,"Rafael Sousa",5,13,opcoesOutro,1234
+1,"teste atualizado",1,1,q2,"Ciências Exatas e da Terra"
+2,"teste atualizado",1,1,q3,Atuação
+3,"Jose Esio",1,1,q3,Atuação
+4,"Jose Esio",1,2,q5,"Edital MCT/CNPq/MS-SCTIE-DECIT nº 025/2006 – Doenças Negligenciadas."
+5,"Jose Esio",1,2,q6,"Titulo da pesquisa"
+6,"Jose Esio",1,2,q7,2021-11-21
+7,"Jose Esio",1,2,q8,2021-11-21
+8,"Jose Esio",1,3,q9_Outro,12
+9,"Jose Esio",1,3,q10,Sim
+10,"Jose Esio",1,3,q10_1_Outro,123
+11,"Jose Esio",1,3,q11,Não
+12,"Jose Esio",1,4,q12,Não
+13,"Jose Esio",1,4,q13,"Pesquisa Biomédica – investigam mecanismos de saúde e doença. Buscam produzir conhecimento sobre desenvolvimento de métodos diagnóstico, tratamento, métodos de prevenção de agravos e doenças, com o objetivo de melhorar a qualidade de vida dos indivíduos."
+14,"Jose Esio",2,5,q14,Não
+15,"Jose Esio",2,5,q15,Sim
+16,"Jose Esio",2,5,q15_1_Outro,"  Livros"
+17,"Jose Esio",2,5,q16,Não
+18,"Rafael Sousa",1,2,q6,"Titulo da pesquisa"
+19,"Rafael Sousa",1,2,q7,
+20,"Rafael Sousa",1,2,q8,
