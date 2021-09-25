@@ -5,6 +5,10 @@
          <a href="<?= $router->route('app.respostas'); ?>" class="nav-link text-white">Repostas</a>
       </a>
 
+      <a class="navbar-brand">
+         <a href="<?= $router->route('app.acessos'); ?>" class="nav-link text-white">Acessos</a>
+      </a>
+
       <button class="navbar-toggler" data-toggle="collapse" data-target="#nav-principal">
          <span class="navbar-toggler-icon"></span>
       </button>

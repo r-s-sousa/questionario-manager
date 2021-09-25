@@ -3,6 +3,7 @@
 namespace Source\Controllers;
 
 use Source\Models\Dado;
+use Source\Models\Link;
 use Source\Models\Resposta;
 use Source\Utils\Csv;
 use Source\Utils\Respostas;
@@ -50,9 +51,9 @@ class App extends Controller
    {
       // Pega todos pesquisadores
       $obPesquisadores = (new Dado)->find()->fetch(true);
-      
+
       // Caso não tenha nenhum pesquisador
-      if(!$obPesquisadores) $obPesquisadores = new stdClass();
+      if (!$obPesquisadores) $obPesquisadores = new stdClass();
 
       echo $this->view->render('app/app', [
          'title' => "Respostas",
@@ -60,6 +61,23 @@ class App extends Controller
          'obPesquisadores' => $obPesquisadores
       ]);
    }
+
+
+   public function acessos()
+   {
+      // Pega todos links relacionados aos pesquisadores
+      $obPesquisadores = (new Link)->find()->fetch(true);
+
+      // Caso não tenha nenhum pesquisador
+      if (!$obPesquisadores) $obPesquisadores = new stdClass();
+
+      echo $this->view->render('app/linkStatus', [
+         'title' => "Acessos",
+         'userId' => $_SESSION['managerUserId'],
+         'obPesquisadores' => $obPesquisadores
+      ]);
+   }
+
 
    /**
     * Deleta o pesquisador e todas suas respostas
@@ -72,8 +90,8 @@ class App extends Controller
       // Id do pesquisador
       $id = filter_var($data['id'], FILTER_SANITIZE_STRING);
       $obPesquisador = (new Dado)->find('id = :id', "id=$id")->fetch();
-      if(!$obPesquisador){
-         setMessage('error', "Não foi encontrado dados desse pesquisador!");   
+      if (!$obPesquisador) {
+         setMessage('error', "Não foi encontrado dados desse pesquisador!");
          $this->router->redirect('app.respostas');
          return;
       }
@@ -84,13 +102,13 @@ class App extends Controller
       // deleta o pesquisador
       $obPesquisador->destroy();
 
-      if(!$obRespostas){
-         setMessage('error', "Todas respostas já foram removidas!");     
+      if (!$obRespostas) {
+         setMessage('error', "Todas respostas já foram removidas!");
          $this->router->redirect('app.respostas');
          return;
       }
 
-      foreach($obRespostas as $obResposta){
+      foreach ($obRespostas as $obResposta) {
          $obResposta->destroy();
       }
 
@@ -143,7 +161,7 @@ class App extends Controller
    {
       $dadosPesquisadores = (new Dado)->find()->fetch(true);
 
-      if(!$dadosPesquisadores){
+      if (!$dadosPesquisadores) {
          setMessage('error', "Não temos registros suficientes para gerar seu Relatório");
          $this->router->redirect('app.respostas');
          return;
@@ -154,7 +172,7 @@ class App extends Controller
          $dadosRespostas[$obPesquisador->id] = $this->getRespostasByPesquisador($obPesquisador);
       }
 
-      if(count($dadosRespostas) == 0){
+      if (count($dadosRespostas) == 0) {
          setMessage('error', "Não temos registros suficientes para gerar seu Relatório");
          $this->router->redirect('app.respostas');
          return;
@@ -179,7 +197,7 @@ class App extends Controller
       $idPesquisador = filter_Var($data['id'], FILTER_SANITIZE_STRING);
       $obPesquisador = (new Dado)->find('id = :id', "id=$idPesquisador")->fetch();
 
-      if(!$obPesquisador){
+      if (!$obPesquisador) {
          setMessage('error', "Não temos registros suficientes para gerar seu Relatório");
          $this->router->redirect('app.respostas');
          return;
@@ -187,7 +205,7 @@ class App extends Controller
 
       $dadosRespostas[$obPesquisador->id] = $this->getRespostasByPesquisador($obPesquisador);
 
-      if(count($dadosRespostas) == 0){
+      if (count($dadosRespostas) == 0) {
          setMessage('error', "Não temos registros suficientes para gerar seu Relatório");
          $this->router->redirect('app.respostas');
          return;
