@@ -30,10 +30,12 @@ $this->insert('partials/navbar', ['userId' => $userId]);
                   <?php endif; ?>
                </td>
                <td>
-                  <?php if($pesquisador->termoConsentimento): ?>
-                     <i class="fas fa-square text-success"></i>
-                  <?php else: ?>
+                  <?php if($pesquisador->termoConsentimento == null): ?>
+                     <i class="fas fa-square text-dark"></i>
+                  <?php elseif($pesquisador->termoConsentimento == 0): ?>
                      <i class="fas fa-square text-danger"></i>
+                  <?php elseif($pesquisador->termoConsentimento == 1): ?>
+                     <i class="fas fa-square text-success"></i>
                   <?php endif; ?>
                </td>
             </tr>
