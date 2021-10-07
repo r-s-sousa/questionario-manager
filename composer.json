@@ -12,7 +12,8 @@
       "coffeecode/router": "^1.0",
       "league/plates": "^3.4",
       "symfony/dotenv": "^5.3",
-      "coffeecode/datalayer": "^1.1"
+      "coffeecode/datalayer": "^1.1",
+      "dompdf/dompdf": "^1.0"
    },
    "autoload": {
       "psr-4": {

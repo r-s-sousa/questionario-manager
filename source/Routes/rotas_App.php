@@ -11,5 +11,4 @@ $router->get("/exportar-individual/{id}", "App:exportarIndividual", "app.exporta
 $router->get("/pesquisador/{id}", "App:verPesquisador", "app.verPesquisador");
 $router->get("/deletar/{id}", "App:deletar", "app.deletar");
 $router->get("/logout", "App:logout", "app.logout");
-
-
+$router->get('/exportarStatusLink', 'App:exportarStatusLink', 'app.exportarStatusLink');

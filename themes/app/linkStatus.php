@@ -45,7 +45,7 @@ $this->insert('partials/navbar', ['userId' => $userId]);
 </div>
 
 <div class="col-md-12">
-   <a href="<?= $router->route('app.exportar'); ?>" class="btn btn-outline-info">Baixar</a>
+   <a href="<?= $router->route('app.exportarStatusLink'); ?>" class="btn btn-outline-info">Baixar</a>
 </div>
 
 <!-- filter table jquery -->

@@ -9,7 +9,7 @@
 function abreviaNome(string $nomeCompleto): string
 {
    $nomeSplit = explode(' ', $nomeCompleto);
-   if(count($nomeSplit) > 1) return $nomeSplit[0]." ".$nomeSplit[count($nomeSplit)-1];
+   if (count($nomeSplit) > 1) return $nomeSplit[0] . " " . $nomeSplit[count($nomeSplit) - 1];
    else return $nomeCompleto;
 }
 
@@ -17,20 +17,16 @@ function abreviaNome(string $nomeCompleto): string
  * Apresenta todos argumentos passados de uma 
  * forma bem atrativa
  *
- * @param boolean $exit Finaliza o site após apresentar os dados
+ * @param mixed $args Finaliza o site após apresentar os dados
  * @return void
  */
-function dd()
+function dd($args)
 {
-   $args = func_get_args();
+   echo "<pre>";
+   var_dump($args);
+   echo "</pre>";
 
-   foreach ($args as $arg) {
-      echo "<pre>";
-      var_dump($arg);
-      echo "</pre>";
-
-      echo "<br>";
-   }
+   die();
 }
 
 /**

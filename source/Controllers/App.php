@@ -6,6 +6,7 @@ use Source\Models\Dado;
 use Source\Models\Link;
 use Source\Models\Resposta;
 use Source\Utils\Csv;
+use Source\Utils\Pdf;
 use Source\Utils\Respostas;
 use stdClass;
 
@@ -62,8 +63,12 @@ class App extends Controller
       ]);
    }
 
-
-   public function acessos()
+   /**
+    * Gera a página de controle de acesso por link
+    *
+    * @return void
+    */
+   public function acessos(): void
    {
       // Pega todos links relacionados aos pesquisadores
       $obPesquisadores = (new Link)->find()->fetch(true);
@@ -78,6 +83,22 @@ class App extends Controller
       ]);
    }
 
+   /**
+    * Baixa PDF com os dados referentes o acesso do Pesquisador
+    *
+    * @return void
+    */
+   public function exportarStatusLink(): void
+   {
+      // Dados dos links
+      $obPesquisadores = (new Link)->find()->fetch(true);
+
+      // Página HTML base para PDF
+      $htmlBase = $this->view->render('app/modeloLinks', ['obPesquisadores'=>$obPesquisadores]);
+
+      // Converte HTML em pdf stream
+      $obPdf = (new Pdf($htmlBase, $obPesquisadores))->gerarPdfAcessoLinks();
+   }
 
    /**
     * Deleta o pesquisador e todas suas respostas
