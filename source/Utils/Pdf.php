@@ -29,6 +29,7 @@ class Pdf
       $options = new Options();
       $options->set('isRemoteEnabled', true);
       $this->dompdf = new Dompdf($options);
+      $htmlBase = mb_convert_encoding($htmlBase, 'HTML-ENTITIES', 'UTF-8');
       $this->dompdf->loadHtml($htmlBase);
       $this->dompdf->render("dados.pdf", ['Attachment'=>false]);
    }
